@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Customers CRUD</title>
+    <style>
+        input[type='submit'], button, [aria-label] {
+            cursor: pointer;
+        }
+
+        #spoiler {
+            display: none;
+        }
+
+        table {
+            font-family: Arial, sans-serif;
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #0066CC;
+            color: white;
+        }
+
+        td {
+            border: 1px solid;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Customers</h1>
+    <h3>LIST</h3>
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Date Created</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tbody id="customerlist"></tbody>
+    </table>
+    <p id="counter"></p>
+
+    <h3>ADD NEW</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="addCustomer()">
+        <input type="text" id="add-fname" placeholder="first name" required>
+        <input type="text" id="add-lname" placeholder="last name" required>
+        <input type="tel" id="add-phone" placeholder="phone (123-456-7890)" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+        <input type="email" id="add-email" placeholder="email@asd.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        <input type="submit" value="Add">
+    </form>
+
+    <div id="spoiler">
+        <h3>EDIT</h3>
+        <form class="my-form">
+            <input type="hidden" id="edit-id">
+            <input type="text" id="edit-fname" placeholder="first name" required>
+            <input type="text" id="edit-lname" placeholder="last name" required>
+            <input type="tel" id="edit-phone" placeholder="phone (123-456-7890)">
+            <input type="email" id="edit-email" placeholder="email@asd.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            <input type="submit" value="Save">
+            <a onclick="closeInput()" aria-label="Close">&#10006;</a>
+        </form>
+    </div>
+   
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="site.js"></script>
+</body>
+</html>
